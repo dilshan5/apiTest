@@ -2,7 +2,8 @@ exports.config = {
   output: './output',
   helpers: {
     REST: {
-      endpoint: 'http://gateway.marvel.com/v1/',
+      endpoint: 'http://gateway.marvel.com',
+      timeout: 50000
     },
   AssertWrapper: {
     require: "codeceptjs-assert"
