@@ -3,7 +3,10 @@ exports.config = {
   helpers: {
     REST: {
       endpoint: 'http://gateway.marvel.com/v1/',
-    }
+    },
+  AssertWrapper: {
+    require: "codeceptjs-assert"
+  }
   },
   include: {
     I: './steps_file.js'
