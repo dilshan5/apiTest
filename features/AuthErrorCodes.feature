@@ -1,4 +1,4 @@
-Feature: Marvel API
+Feature: Marvel API - Authorization
   In order to sure everything is up-to-date and working
   As a person
   I want to check the API Authorization
@@ -16,13 +16,13 @@ Feature: Marvel API
       | Invalid Hash    | 401        | Invalid Hash      |
       | Invalid Referer | 401        | Invalid Referer   |
 
-  Scenario: Verify Authorization Error Codes when User access an endpoint to which they do not have access.
+  Scenario: Verify Authorization Error Code when User access an endpoint to which they do not have access.
     Given I am Server Side Application with "Valid" in QueryParams
     When I send a GET request to "/v1/public/series"
     And Response status code should be "403"
     Then Response status message should be "Forbidden"
 
-  Scenario: Verify Authorization Error Codes when User accessed using an HTTP
+  Scenario: Verify Authorization Error Code when User accessed using an HTTP
     Given I am Server Side Application with "Valid" in QueryParams
     When I send a GET request to "/v1/public/series"
     And Response status code should be "405"

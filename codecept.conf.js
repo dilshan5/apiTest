@@ -1,30 +1,33 @@
 exports.config = {
-  output: './output',
-  helpers: {
-    REST: {
-      endpoint: 'http://gateway.marvel.com',
-      timeout: 50000
+    output: './output',
+    helpers: {
+        REST: {
+            endpoint: 'http://gateway.marvel.com',
+            timeout: 50000
+        },
+        AssertWrapper: {
+            require: "codeceptjs-assert"
+        }
     },
-  AssertWrapper: {
-    require: "codeceptjs-assert"
-  }
-  },
-  include: {
-    I: './steps_file.js'
-  },
-  mocha: {},
-  bootstrap: null,
-  teardown: null,
-  hooks: [],
-  gherkin: {
-    features: './features/*.feature',
-    steps: ['./step_definitions/steps.js']
-  },
-  plugins: {
-    screenshotOnFail: {
-      enabled: true
-    }
-  },
-  tests: './*_test.js',
-  name: 'codeceptjs-apiTest'
+    include: {
+        I: './steps_file.js'
+    },
+    mocha: {},
+    bootstrap: null,
+    teardown: null,
+    hooks: [],
+    gherkin: {
+        features: './features/*.feature',
+        steps: [
+            './step_definitions/authErrorCodeSteps.js',
+            './step_definitions/responseSteps.js'
+        ]
+    },
+    plugins: {
+        screenshotOnFail: {
+            enabled: true
+        }
+    },
+    tests: './*_test.js',
+    name: 'codeceptjs-apiTest'
 }
