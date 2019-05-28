@@ -18,3 +18,4 @@ Feature: Marvel API - Character
     When I send a "GET" request to "/v1/public/characters/1011010xxxxxx"
     And Response status code should be "404"
     Then Response status message should be "Not Found"
+    And I should see a empty response

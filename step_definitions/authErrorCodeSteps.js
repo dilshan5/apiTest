@@ -35,7 +35,7 @@ Given('I am Server Side Application with {string} QueryParams', (qParamsType) =>
 });
 
 When('Response status code should be {string}', (code) => {
-    I.assertEqual(code, global.response.status, "ERROR: Expected Status code is " + code + ". But got" + global.response.status);
+    I.assertEqual(code, global.response.status, "ERROR: Expected Status code is " + code + ". But got " + global.response.status);
 });
 
 Then('Response status message should be {string}', (codeText) => {
@@ -43,7 +43,7 @@ Then('Response status message should be {string}', (codeText) => {
 });
 
 When('I send a {string} request to {string}', async (httpMethod, endPoint) => {
-    global.response = ""; //set response to null
+    global.response = {}; //set response to empty
 
     switch (httpMethod) {
         case 'GET':
@@ -51,7 +51,7 @@ When('I send a {string} request to {string}', async (httpMethod, endPoint) => {
             break;
         case 'POST':
             // create a post and save its Id
-            let postId = await I.sendPostRequest(endPoint + qParams, {});
+            let postId = await I.sendPostRequest(endPoint + qParams);
             break;
         default:
             I.say("In valid HTTP method", 'blue');

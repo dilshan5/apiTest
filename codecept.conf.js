@@ -2,8 +2,13 @@ exports.config = {
     output: './output',
     helpers: {
         REST: {
-            endpoint: 'http://gateway.marvel.com',
+            endpoint: 'http://gateway.marvel.com', // API base URL
             timeout: 50000,
+            defaultHeaders: {
+                'Connection': 'keep-alive',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate'
+            },
             resetHeaders: true
         },
         AssertWrapper: {
@@ -14,7 +19,11 @@ exports.config = {
         I: './steps_file.js',
         global: './data.js'
     },
-    mocha: {},
+    mocha: {
+        reporterOptions: {
+            reportDir: "output"
+        }
+    },
     bootstrap: null,
     teardown: null,
     hooks: [],
@@ -28,6 +37,9 @@ exports.config = {
     },
     plugins: {
         screenshotOnFail: {
+            enabled: true
+        },
+        allure: {
             enabled: true
         }
     },

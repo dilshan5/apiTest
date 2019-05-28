@@ -1,0 +1,25 @@
+# set the version of CircleCI to use.
+# we'll use the latest version.
+version: 2
+jobs:
+  # tell CI to create a virtual node environment with Docker
+  # specify the virtual image to use
+  # the -browsers suffix tells it to have browsers pre-installed
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:latest
+
+    steps:
+      - checkout
+      - run:
+          name: Install the required npm packages
+          command: npm install
+      - run:
+          name: Install npx
+          command: sudo npm i npx
+      - run:
+          name: Run codeceptjs Test
+          command: npx codeceptjs run --steps --reporter mochawesome
+      - store_artifacts:
+          path: output

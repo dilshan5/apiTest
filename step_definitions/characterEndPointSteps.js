@@ -30,3 +30,8 @@ Then('the response body should include:', async (table) => {
         }
     }
 });
+
+Then('I should see a empty response', () => {
+   //Check whether response should not contain any value
+    I.assertEqual(true, (JSON.stringify(global.response) === '{}'), "Response is NOT empty.")
+});
