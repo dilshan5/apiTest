@@ -1,6 +1,6 @@
 Feature: Marvel API - Authorization
   In order to sure everything is up-to-date and working
-  As a person
+  As a tester
   I want to check the API Authorization
 
   Scenario Outline: Verify Authorization Error Codes for Query Params
@@ -18,7 +18,7 @@ Feature: Marvel API - Authorization
 
   Scenario: Verify Authorization Error Code when User access an endpoint to which they do not have access.
     Given I am Server Side Application with "Valid" in QueryParams
-    When I send a GET request to "/v1/public/series"
+    When I send a GET request to "/v1/private/series"
     And Response status code should be "403"
     Then Response status message should be "Forbidden"
 

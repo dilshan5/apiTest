@@ -22,7 +22,8 @@ exports.config = {
         features: './features/*.feature',
         steps: [
             './step_definitions/authErrorCodeSteps.js',
-            './step_definitions/comicEndPointSteps.js'
+            './step_definitions/comicEndPointSteps.js',
+            './step_definitions/characterEndPointSteps.js'
         ]
     },
     plugins: {

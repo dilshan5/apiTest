@@ -1,7 +1,7 @@
 Feature: Marvel API - Comic
   In order to sure everything is up-to-date and working
-  As a person
-  I want to check all the Comic endpoints
+  As a tester
+  I want to check all the Comic related endpoints
 
   Scenario: Single comic by id - response payload matches the Comic type definition
     Given I am Server Side Application with "Valid" in QueryParams

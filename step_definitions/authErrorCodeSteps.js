@@ -4,8 +4,6 @@ let qParams; // store query params for auth
 
 Given('I am Server Side Application with {string} in QueryParams', (qParamsType) => {
     var milliseconds = (new Date).getTime(); //get epoch time
-    console.log("privateKey: "+global.privateKey);
-    console.log("publicKey: "+global.publicKey);
     var hashValue = md5(milliseconds + global.privateKey + global.publicKey); //generate to hash value
 
     //set the header values for validation
