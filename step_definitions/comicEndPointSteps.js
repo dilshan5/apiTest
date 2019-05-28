@@ -15,7 +15,9 @@ Then('the response payload should be:', (table) => {
         const responseKey = cells[0].value;
         const objectType = cells[1].value;
 
-        //object or primitive type is returned and verify it with payload.
+        /* object or primitive type is returned and verify it with payload.
+           refer https://developer.marvel.com/docs
+        */
         switch (responseKey) {
             case 'code':
                 I.assertEqual(typeof global.response.data.data.code, objectType, "Expected object was " + objectType);
