@@ -21,8 +21,8 @@ Then('the response body should include:', async (table) => {
                 I.assertEqual(1, global.response.data.data.results[0].modified > "Jan 01 2014", "Last modification was earlier than Jan 2014");
                 break;
             case 'Image URL':
-                let imageURL = global.response.data.data.results[0].thumbnail.path;
-                let imageResponse = await I.sendGetRequest(imageURL);
+                let imageURL = global.response.data.data.results[0].thumbnail.path; //get directory path of the image.
+                let imageResponse = await I.sendGetRequest(imageURL); // get the validity of the image url
                 I.assertEqual(200, imageResponse.status, "Invalid Image URL.");
                 break;
             default:

@@ -4,8 +4,8 @@ Feature: Marvel API - Authorization
   I want to check the API Authorization
 
   Scenario Outline: Verify Authorization Error Codes for Query Params
-    Given I am Server Side Application with "<Error_Reason>" in QueryParams
-    When I send a GET request to "/v1/public/series"
+    Given I am Server Side Application with "<Error_Reason>" QueryParams
+    When I send a "GET" request to "/v1/public/series"
     And Response status code should be "<Error_Code>"
     Then Response status message should be "<Error_Message>"
     Examples:
@@ -17,13 +17,13 @@ Feature: Marvel API - Authorization
       | Invalid Referer | 401        | Invalid Referer   |
 
   Scenario: Verify Authorization Error Code when User access an endpoint to which they do not have access.
-    Given I am Server Side Application with "Valid" in QueryParams
-    When I send a GET request to "/v1/private/series"
+    Given I am Server Side Application with "Valid" QueryParams
+    When I send a "GET" request to "/v1/private/series"
     And Response status code should be "403"
     Then Response status message should be "Forbidden"
 
-  Scenario: Verify Authorization Error Code when User accessed using an HTTP
-    Given I am Server Side Application with "Valid" in QueryParams
-    When I send a GET request to "/v1/public/series"
+  Scenario: Verify all endpoints are currently accept only HTTP GET requests
+    Given I am Server Side Application with "Valid" QueryParams
+    When I send a "POST" request to "/v1/public/series"
     And Response status code should be "405"
     Then Response status message should be "Method Not Allowed"

@@ -27,3 +27,7 @@ To run all api tests just simply type
 ```sh
 $ npx codeceptjs run --steps
 ```
+
+### How to chage your private key
+
+Go to data.js file and change your private and public keys.
