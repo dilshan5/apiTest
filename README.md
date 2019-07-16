@@ -1,5 +1,5 @@
 # Introduction
-This is s codeceptJS Rest project. Use BDD approach in test case development.
+This is s codeceptJS Rest project. Use BDD approach in test case development. Used CircleCI as integration tool.
 
 # How to use
 This is done using CodeceptJS https://codecept.io/
